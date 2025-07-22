@@ -1,0 +1,976 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Star Builders - Residential Construction</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+     <link rel="stylesheet" href="static/css/reandcom.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    <h1>STAR BUILDERS</h1>
+                </div>
+                <ul class="nav-links">
+                     <li><a href="{{ url_for('home') }}">Home</a></li>
+                    <li><a href="{{ url_for('home') }}#services">Services</a></li>
+
+                    <li><a href="{{ url_for('home') }}#about">About</a></li>
+                    <li><a href="{{ url_for('home') }}#contact">Contact</a></li>
+                </ul>
+                <div class="hamburger">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Residential Hero Section -->
+    <section class="service-hero">
+         <video autoplay muted loop playsinline class="bg-video">
+         <source src="{{ url_for('static', filename='images/commercial.mp4') }}" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+        <div class="container">
+            <h1>Commercial Construction</h1>
+            <p>Professional commercial building solutions for businesses of all sizes.</p>
+        </div>
+    </section>
+
+   <div class="container">
+        <div class="pricing-section">
+            <h2 class="section-title">Construction Packages</h2>
+            <p class="pricing-subtitle">Select the perfect package for your construction needs. All packages include professional project management and quality assurance.</p>
+
+            <div class="pricing-container">
+                <!-- Basic Package -->
+                <div class="pricing-card basic">
+                    <div class="pricing-header">
+                        <h2>Basic</h2>
+                        <div class="price">₹1799<span>/sq.ft</span></div>
+                    </div>
+
+                    <div class="pricing-features">
+                        <!-- Structure Section -->
+                        <div class="collapsible-section">
+                            <div class="section-header" data-target="basic-structure">
+                                <h3><i class="fas fa-cubes"></i> Structure</h3>
+                                <i class="fas fa-chevron-down toggle-icon"></i>
+                            </div>
+                            <div class="section-content" id="basic-structure">
+                                <ul class="feature-list">
+                                    <li>Basement height : Upto 2 feet from Ground Level Car parking 1 feet</li>
+                                    <li>Steel: ARS</li>
+                                    <li>Aggregates: 20mm & 40mm</li>
+                                    <li>Bricks: 9 inch for Exterior Wall & 4.5 inch for Interior Wall (Rs.20/sft extra during rainy season due to increase in bricks price)</li>
+                                    <li>Cement: Dalmia</li>
+                                    <li>M Sand: Brickwork & P Sand: Plastering</li>
+                                    <li>RCC Design Mix: M20</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Kitchen Section -->
+
+
+                        <div class="collapsible-section">
+                            <div class="section-header" data-target="basic-bathroom">
+                                <h3><i class="fas fa-bath"></i> Bathroom</h3>
+                                <i class="fas fa-chevron-down toggle-icon"></i>
+                            </div>
+                            <div class="section-content" id="basic-bathroom">
+                               <ul class="feature-list">
+                                    <li>Wall Tiles For 7 Feet Upto 35 Rs Per Sq ft</li>
+                                    <li>Sanitary Ware & CP Fitting Upto Rs 8,000.</li>
+                                    <li>CPVC/PVC: Any ISI brand</li>
+                                    <li>Bathroom Accessories: EWC, Health Faucet, Wash Basin, 2 in 1 Wall Mixer, Overhead Shower</li>
+                                   <li>All bathroom fittings are white color & basic model in any ISI brand</li>
+                                   <li>PVC WaterProof Doors</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="collapsible-section">
+                            <div class="section-header" data-target="basic-plumbing">
+                                <h3><i class="fas fa-faucet"></i> Plumbing</h3>
+                                <i class="fas fa-chevron-down toggle-icon"></i>
+                            </div>
+                            <div class="section-content" id="basic-plumbing">
+                               <ul class="feature-list">
+                                    <li>Bathroom – 1 wash basin with tap, 1 shower with wall mixer for hot & cold water, 1 floor mount western closet with health faucet.</li>
+                                    <li>Dining – 1 wash basin with tap </li>
+                                    <li>Kitchen – Single stainless steel sink with 1 tap. </li>
+                                   <li>Service – 1 tap point & water outlet point for washing machine</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="collapsible-section">
+                            <div class="section-header" data-target="basic-doors">
+                                <h3><i class="fas fa-door-open"></i> Doors & Windows</h3>
+                                <i class="fas fa-chevron-down toggle-icon"></i>
+                            </div>
+                            <div class="section-content" id="basic-doors">
+                               <ul class="feature-list">
+                                    <li>Doors or shutters & windows will be provided to a maximum value of Rs.70,000 for a 1000 sft. construction</li>
+
+                                </ul>
+                            </div>
+                        </div>
+
+                         <div class="collapsible-section">
+                            <div class="section-header" data-target="basic-painting">
+                                <h3><i class="fas fa-paint-roller"></i> Painting</h3>
+                                <i class="fas fa-chevron-down toggle-icon"></i>
+                            </div>
+                            <div class="section-content" id="basic-painting">
+                                <ul class="feature-list">
+                                    <li>Interior: 1 Coat of brand putty</li>
+                                    <li>Interior: 1 Coat of Asian Paint Primer</li>
+                                    <li>Interior: 2 Coat of Asian Paint Tractor Emulsion</li>
+                                    <li>Exterior: 1 Coat of white cement</li>
+                                    <li>Exterior: 1 coat of primer</li>
+                                    <li>Exterior: 2 Coat of Asian Paint Ace Emulsion</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="collapsible-section">
+                            <div class="section-header" data-target="basic-flooring">
+                                <h3><i class="fas fa-th-large"></i> Flooring</h3>
+                                <i class="fas fa-chevron-down toggle-icon"></i>
+                            </div>
+                            <div class="section-content" id="basic-flooring">
+                                <ul class="feature-list">
+                                    <li>Living & Dining Flooring: Tiles Upto 45 Rs Per Sq ft</li>
+                                    <li>Room & Kitchen Flooring: Tiles Upto 45 Rs Per Sq ft</li>
+                                    <li>Balcony & Open Area Flooring: Tiles Upto 35 Rs Per Sq ft</li>
+                                    <li>Staircase Flooring: Anti-skid Tiles Upto 35 Rs Per Sq ft</li>
+                                    <li>Parking Tiles: Anti-skid Tiles Upto 35 Rs Per Sq ft</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                         <div class="collapsible-section">
+                            <div class="section-header" data-target="basic-electrical">
+                                <h3><i class="fas fa-lightbulb"></i> Electrical</h3>
+                                <i class="fas fa-chevron-down toggle-icon"></i>
+                            </div>
+                            <div class="section-content" id="basic-electrical">
+                                <ul class="feature-list">
+                                    <li>Wires –  Any ISI brand</li>
+                                    <li>Switches –  Any ISI brand</li>
+                                    <li>Bedroom – 1 switch box with switches for 1 fan, 2 lights and 1 five amps socket with switch near door and another switch box with same set of switches near bed for two-way control.
+1 AC point, 1 fan point and 2 lights point</li>
+                                    <li>Bathroom- 1 switch box with 1 switch for light and 1 switch for heater near the door & 15 amps socket for heater. 1 switch box with 1 five amps socket for hair dryer near the mirror </li>
+                                    <li>Hall- 1 switch box near the door for 2 fans, 2 lights & 1 five amps socket and another switch box with same set of switches near sofa. 1 switch box with 1 five amps sockets and switches along with cable point for TV connection</li>
+                                    <li>Dining-1 switch box with switches for 1 fan & 1 light </li>
+                                    <li>Pooja- 1 switch box with switch for 1 light</li>
+                                    <li>Kitchen- 1 switch box with switch for 2 lights, 1 exhaust fan. 1 switch box with 15 amps socket & switch for refrigerator. 1 switch box with one 15 amps socket & switch for mixie/ oven.</li>
+                                    <li>Service-1 switch for light, 1 switch box with 15 amps socket & switch for washing machine</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Include Section -->
+                        <div class="collapsible-section">
+                            <div class="section-header" data-target="basic-include">
+                                <h3><i class="fas fa-check-circle"></i> Included</h3>
+                                <i class="fas fa-chevron-down toggle-icon"></i>
+                            </div>
+                            <div class="section-content" id="basic-include">
+                                <ul class="feature-list">
+                                    <li>1 Loft in each bedroom, kitchen & pooja room on the shorter side of the wall</li>
+                                    <li>1 Shelf in each bedroom, kitchen & pooja room of maximum width 5 feet</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Exclude Section -->
+                        <div class="collapsible-section">
+                            <div class="section-header" data-target="basic-exclude">
+                                <h3><i class="fas fa-times-circle"></i> Excluded</h3>
+                                <i class="fas fa-chevron-down toggle-icon"></i>
+                            </div>
+                            <div class="section-content" id="basic-exclude">
+                                <ul class="feature-list">
+                                    <li>Any government taxes</li>
+                                    <li>Water connection charges</li>
+                                    <li>EB Connections & Charges</li>
+                                    <li>Compound Wall</li>
+                                    <li>Roof weathering</li>
+                                    <li>Underground water storage Sump Rs 15 Per Litre</li>
+                                    <li>Overhead sintex tank Rs.15 per litre</li>
+                                    <li>Overhead concrete tank Rs 30 per litre</li>
+                                    <li>Elevation Work Extra</li>
+                                    <li>Water recycling tank based on the requirement</li>
+                                    <li>Additional Basement height</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Design Section -->
+                        <div class="collapsible-section">
+                            <div class="section-header" data-target="basic-design">
+                                <h3><i class="fas fa-drafting-compass"></i> Design</h3>
+                                <i class="fas fa-chevron-down toggle-icon"></i>
+                            </div>
+                            <div class="section-content" id="basic-design">
+                                <ul class="feature-list">
+                                    <li>2D Floor Plan</li>
+                                    <li>3D Elevation Design</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Standard Package -->
+                <div class="pricing-card standard">
+                    <div class="popular-badge">Most Popular</div>
+
+                    <div class="pricing-header">
+                        <h2>Standard</h2>
+                        <div class="price">₹1949<span>/sq.ft</span></div>
+                    </div>
+
+                    <div class="pricing-features">
+                        <div class="package-includes">
+                            Includes Basic Package Plus:
+                        </div>
+
+                        <!-- Structure Section -->
+                        <div class="collapsible-section">
+                            <div class="section-header" data-target="standard-structure">
+                                <h3><i class="fas fa-cubes"></i> Structure</h3>
+                                <i class="fas fa-chevron-down toggle-icon"></i>
+                            </div>
+                            <div class="section-content" id="standard-structure">
+                                <ul class="feature-list">
+                                    <li>RCC framed structure with enhanced reinforcement</li>
+                                    <li>High-quality brick walls with insulation</li>
+                                    <li>Reinforced foundation with waterproofing</li>
+                                    <li>Enhanced roofing with thermal insulation</li>
+                                    <li>Basement height: Upto 3 feet</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Kitchen Section -->
+
+                        <div class="collapsible-section">
+                            <div class="section-header" data-target="standard-bathroom">
+                                <h3><i class="fas fa-bath"></i> Bathroom</h3>
+                                <i class="fas fa-chevron-down toggle-icon"></i>
+                            </div>
+                            <div class="section-content" id="standard-bathroom">
+                               <ul class="feature-list">
+                                    <li>Wall Tiles For 7 Feet Upto 55 Rs Per Sq ft</li>
+                                    <li>Sanitary Ware & CP Fitting Upto Rs 12,000.</li>
+                                    <li>CPVC pipes with ISI certification</li>
+                                    <li>Premium bathroom accessories</li>
+                                   <li>Water-resistant wooden doors</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="collapsible-section">
+                            <div class="section-header" data-target="standard-plumbing">
+                                <h3><i class="fas fa-faucet"></i> Plumbing</h3>
+                                <i class="fas fa-chevron-down toggle-icon"></i>
+                            </div>
+                            <div class="section-content" id="standard-plumbing">
+                               <ul class="feature-list">
+                                    <li>Advanced plumbing system with pressure balancing</li>
+                                    <li>Premium fixtures and fittings</li>
+                                    <li>Water-saving technologies</li>
+                                    <li>Additional water outlets in all areas</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="collapsible-section">
+                            <div class="section-header" data-target="standard-doors">
+                                <h3><i class="fas fa-door-open"></i> Doors & Windows</h3>
+                                <i class="fas fa-chevron-down toggle-icon"></i>
+                            </div>
+                            <div class="section-content" id="standard-doors">
+                               <ul class="feature-list">
+                                    <li>Doors or shutters & windows will be provided to a maximum value of Rs.85,000 for a 1000 sft. construction</li>
+
+                                </ul>
+                            </div>
+                        </div>
+
+                         <div class="collapsible-section">
+                            <div class="section-header" data-target="standard-painting">
+                                <h3><i class="fas fa-paint-roller"></i> Painting</h3>
+                                <i class="fas fa-chevron-down toggle-icon"></i>
+                            </div>
+                            <div class="section-content" id="standard-painting">
+                                <ul class="feature-list">
+                                    <li>Premium putty application</li>
+                                    <li>2 coats of premium primer</li>
+                                    <li>3 coats of Asian Paint premium emulsion</li>
+                                    <li>Exterior weatherproof paint</li>
+                                    <li>Textured finishes available</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Flooring Section -->
+                        <div class="collapsible-section">
+                            <div class="section-header" data-target="standard-flooring">
+                                <h3><i class="fas fa-th-large"></i> Flooring</h3>
+                                <i class="fas fa-chevron-down toggle-icon"></i>
+                            </div>
+                            <div class="section-content" id="standard-flooring">
+                                <ul class="feature-list">
+                                    <li>Living & Dining Flooring: Tiles Upto 65 Rs Per Sq ft</li>
+                                    <li>Room & Kitchen Flooring: Tiles Upto 65 Rs Per Sq ft</li>
+                                    <li>Balcony & Open Area Flooring: Anti-skid Tiles Upto 45 Rs Per Sq ft</li>
+                                    <li>Staircase Flooring: Premium Anti-skid Tiles</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                         <div class="collapsible-section">
+                            <div class="section-header" data-target="standard-electrical">
+                                <h3><i class="fas fa-lightbulb"></i> Electrical</h3>
+                                <i class="fas fa-chevron-down toggle-icon"></i>
+                            </div>
+                            <div class="section-content" id="standard-electrical">
+                                <ul class="feature-list">
+                                    <li>Premium ISI certified wires</li>
+                                    <li>Modular switches from leading brands</li>
+                                    <li>Enhanced electrical points in all rooms</li>
+                                    <li>Dedicated circuits for heavy appliances</li>
+                                    <li>Surge protection for all circuits</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Include Section -->
+                        <div class="collapsible-section">
+                            <div class="section-header" data-target="standard-include">
+                                <h3><i class="fas fa-check-circle"></i> Included</h3>
+                                <i class="fas fa-chevron-down toggle-icon"></i>
+                            </div>
+                            <div class="section-content" id="standard-include">
+                                <ul class="feature-list">
+                                    <li>Material transportation</li>
+                                    <li>Labor charges</li>
+                                    <li>Standard electrical fittings</li>
+                                    <li>Basic plumbing</li>
+                                    <li>Roof weathering included</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Exclude Section -->
+                        <div class="collapsible-section">
+                            <div class="section-header" data-target="standard-exclude">
+                                <h3><i class="fas fa-times-circle"></i> Excluded</h3>
+                                <i class="fas fa-chevron-down toggle-icon"></i>
+                            </div>
+                            <div class="section-content" id="standard-exclude">
+                                <ul class="feature-list">
+                                    <li>Any government taxes</li>
+                                    <li>Water connection charges</li>
+                                    <li>Electricity connection charges</li>
+                                    <li>Interior decoration</li>
+                                    <li>Landscaping</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Design Section -->
+                        <div class="collapsible-section">
+                            <div class="section-header" data-target="standard-design">
+                                <h3><i class="fas fa-drafting-compass"></i> Design</h3>
+                                <i class="fas fa-chevron-down toggle-icon"></i>
+                            </div>
+                            <div class="section-content" id="standard-design">
+                                <ul class="feature-list">
+                                    <li>2D Floor Plan</li>
+                                    <li>3D Elevation Design</li>
+                                    <li>Structure Design</li>
+
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Premium Package -->
+                <div class="pricing-card premium">
+                    <div class="pricing-header">
+                        <h2>Premium</h2>
+                        <div class="price">₹2199<span>/sq.ft</span></div>
+                    </div>
+
+                    <div class="pricing-features">
+                        <div class="package-includes">
+                            Includes Standard Package Plus:
+                        </div>
+
+                        <!-- Structure Section -->
+                        <div class="collapsible-section">
+                            <div class="section-header" data-target="premium-structure">
+                                <h3><i class="fas fa-cubes"></i> Structure</h3>
+                                <i class="fas fa-chevron-down toggle-icon"></i>
+                            </div>
+                            <div class="section-content" id="premium-structure">
+                                <ul class="feature-list">
+                                    <li>Premium RCC framed structure with earthquake resistance</li>
+                                    <li>Reinforced brick walls with advanced insulation</li>
+                                    <li>Advanced foundation with waterproofing and termite treatment</li>
+                                    <li>Premium roofing with thermal and acoustic insulation</li>
+                                    <li>Basement height: Upto 4 feet (if required)</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Kitchen Section -->
+
+
+                        <div class="collapsible-section">
+                            <div class="section-header" data-target="premium-bathroom">
+                                <h3><i class="fas fa-bath"></i> Bathroom</h3>
+                                <i class="fas fa-chevron-down toggle-icon"></i>
+                            </div>
+                            <div class="section-content" id="premium-bathroom">
+                               <ul class="feature-list">
+                                    <li>Wall Tiles For full height Upto 85 Rs Per Sq ft</li>
+                                    <li>Premium Sanitary Ware & CP Fitting Upto Rs 18,000.</li>
+                                    <li>Premium CPVC pipes with ISI certification</li>
+                                    <li>Luxury bathroom accessories</li>
+                                   <li>Water-resistant premium wooden doors</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="collapsible-section">
+                            <div class="section-header" data-target="premium-plumbing">
+                                <h3><i class="fas fa-faucet"></i> Plumbing</h3>
+                                <i class="fas fa-chevron-down toggle-icon"></i>
+                            </div>
+                            <div class="section-content" id="premium-plumbing">
+                               <ul class="feature-list">
+                                    <li>Advanced plumbing system with pressure balancing</li>
+                                    <li>Premium fixtures and fittings from international brands</li>
+                                    <li>Water-saving and smart technologies</li>
+                                    <li>Concealed plumbing for aesthetic appeal</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="collapsible-section">
+                            <div class="section-header" data-target="premium-doors">
+                                <h3><i class="fas fa-door-open"></i> Doors & Windows</h3>
+                                <i class="fas fa-chevron-down toggle-icon"></i>
+                            </div>
+                            <div class="section-content" id="premium-doors">
+                               <ul class="feature-list">
+                                    <li>Doors or shutters & windows will be provided to a maximum value of Rs.1,00,000 for a 1000 sft. construction</li>
+
+                                </ul>
+                            </div>
+                        </div>
+
+                         <div class="collapsible-section">
+                            <div class="section-header" data-target="premium-painting">
+                                <h3><i class="fas fa-paint-roller"></i> Painting</h3>
+                                <i class="fas fa-chevron-down toggle-icon"></i>
+                            </div>
+                            <div class="section-content" id="premium-painting">
+                                <ul class="feature-list">
+                                    <li>Premium putty application with smooth finish</li>
+                                    <li>2 coats of premium primer</li>
+                                    <li>3 coats of Asian Paint premium emulsion</li>
+                                    <li>Exterior weatherproof premium paint</li>
+                                    <li>Custom textured finishes available</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Flooring Section -->
+                        <div class="collapsible-section">
+                            <div class="section-header" data-target="premium-flooring">
+                                <h3><i class="fas fa-th-large"></i> Flooring</h3>
+                                <i class="fas fa-chevron-down toggle-icon"></i>
+                            </div>
+                            <div class="section-content" id="premium-flooring">
+                                <ul class="feature-list">
+                                    <li>Living & Dining Flooring: Granite Upto 120 Rs Per Sq ft</li>
+                                    <li>Room & Kitchen Flooring: Premium Vitrified Tiles</li>
+                                    <li>Balcony & Open Area Flooring: Designer Anti-skid Tiles</li>
+                                    <li>Staircase Flooring: Premium Anti-skid Tiles</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                         <div class="collapsible-section">
+                            <div class="section-header" data-target="premium-electrical">
+                                <h3><i class="fas fa-lightbulb"></i> Electrical</h3>
+                                <i class="fas fa-chevron-down toggle-icon"></i>
+                            </div>
+                            <div class="section-content" id="premium-electrical">
+                                <ul class="feature-list">
+                                    <li>Premium ISI certified wires with enhanced safety</li>
+                                    <li>Modular switches from premium brands</li>
+                                    <li>Enhanced electrical points in all rooms</li>
+                                    <li>Dedicated circuits for heavy appliances</li>
+                                    <li>Surge protection and smart home readiness</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Include Section -->
+                        <div class="collapsible-section">
+                            <div class="section-header" data-target="premium-include">
+                                <h3><i class="fas fa-check-circle"></i> Included</h3>
+                                <i class="fas fa-chevron-down toggle-icon"></i>
+                            </div>
+                            <div class="section-content" id="premium-include">
+                                <ul class="feature-list">
+                                    <li>Material transportation</li>
+                                    <li>Labor charges</li>
+                                    <li>Premium electrical fittings</li>
+                                    <li>Advanced plumbing</li>
+                                    <li>Basic interior work</li>
+                                    <li>Roof weathering</li>
+
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Exclude Section -->
+                        <div class="collapsible-section">
+                            <div class="section-header" data-target="premium-exclude">
+                                <h3><i class="fas fa-times-circle"></i> Excluded</h3>
+                                <i class="fas fa-chevron-down toggle-icon"></i>
+                            </div>
+                            <div class="section-content" id="premium-exclude">
+                                <ul class="feature-list">
+                                    <li>Any government taxes</li>
+                                    <li>Water connection charges</li>
+                                    <li>Electricity connection charges</li>
+                                    <li>Luxury interior decoration</li>
+                                    <li>Landscaping</li>
+                                    <li>Home automation systems</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Design Section -->
+                        <div class="collapsible-section">
+                            <div class="section-header" data-target="premium-design">
+                                <h3><i class="fas fa-drafting-compass"></i> Design</h3>
+                                <i class="fas fa-chevron-down toggle-icon"></i>
+                            </div>
+                            <div class="section-content" id="premium-design">
+                                <ul class="feature-list">
+                                    <li>2D Floor Plan</li>
+                                    <li>3D Elevation Design</li>
+                                    <li>Structural Designing</li>
+                                    <li>Soil Testing( If Required )</li>
+                                    <li>Interior design consultation</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Construction Calculator Section -->
+        <div class="calculator-section">
+            <div class="calculator-container">
+                <div class="calculator-header">
+                    <h2>Construction Cost Calculator</h2>
+                    <p>Estimate your project cost with our comprehensive calculator</p>
+                </div>
+
+                <div class="calculator-body">
+                    <div class="calculator-grid">
+                        <div class="input-group">
+                            <label for="area"><i class="fas fa-ruler-combined"></i> Built-up Area (sq.ft)</label>
+                            <input type="number" id="area" placeholder="Enter total built-up area" min="1">
+                        </div>
+
+                        <div class="input-group">
+                            <label for="package"><i class="fas fa-cube"></i> Construction Package</label>
+                            <select id="package">
+                                <option value="2099">Basic - ₹1799/sq.ft</option>
+                                <option value="2199" selected>Standard - ₹1949/sq.ft</option>
+                                <option value="2499">Premium - ₹2199/sq.ft</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="calculator-grid">
+                        <div class="input-group">
+                            <label for="parking"><i class="fas fa-car"></i> Car Parking Area (sq.ft)</label>
+                            <input type="number" id="parking" placeholder="Enter parking area" min="0" value="0">
+                            <small>Rate: ₹1800/sq.ft</small>
+                        </div>
+
+                        <div class="input-group">
+                            <label for="compound"><i class="fas fa-border-style"></i> Compound Wall Length (ft)</label>
+                            <input type="number" id="compound" placeholder="Enter wall length" min="0" value="0">
+                            <small>Rate: ₹2000/ft</small>
+                        </div>
+
+                        <div class="input-group">
+                            <label for="people"><i class="fas fa-users"></i> Waste Water Tank Capacity (people)</label>
+                            <input type="number" id="people" placeholder="Enter number of people" min="0" value="0">
+                            <small>Rate: ₹30,000 per person</small>
+                        </div>
+                    </div>
+
+                    <!-- Underground Water Tank Input -->
+                    <div class="calculator-grid">
+                        <div class="input-group">
+                            <label for="tank"><i class="fas fa-water"></i> Underground Water Tank Capacity (liters)</label>
+                            <input type="number" id="tank" placeholder="Enter tank capacity in liters" min="0" value="0">
+                            <small>Rate: ₹25 per liter</small>
+                        </div>
+                    </div>
+
+                      <div style="text-align: center;">
+  <button id="calculateBtn" class="calculate-btn">
+    <i class="fas fa-calculator"></i> Calculate Total Cost
+  </button>
+</div>
+
+
+
+                    <div class="results-container" id="resultsContainer" style="display: none;">
+                        <div class="results-header">
+                            <h3>Cost Breakdown</h3>
+                        </div>
+
+                        <div class="results-grid">
+                            <div class="result-item">
+                                <h4>Construction Cost</h4>
+                                <div class="value" id="constructionCost">₹0</div>
+                            </div>
+
+                            <div class="result-item">
+                                <h4>Parking Cost</h4>
+                                <div class="value" id="parkingCost">₹0</div>
+                            </div>
+
+                            <div class="result-item">
+                                <h4>Compound Wall Cost</h4>
+                                <div class="value" id="compoundCost">₹0</div>
+                            </div>
+
+                            <div class="result-item">
+                                <h4>Waste Water Tank Cost</h4>
+                                <div class="value" id="waterCost">₹0</div>
+                            </div>
+
+                             <div class="result-item">
+                                <h4>Underground Water Tank Cost</h4>
+                                <div class="value" id="tankCost">₹0</div>
+                            </div>
+                        </div>
+
+                        <div class="total-cost">
+                            <h3>TOTAL ESTIMATED COST</h3>
+                            <div class="value" id="totalCost">₹0</div>
+                        </div>
+
+                        <button id="downloadBtn" class="download-btn">
+                            <i class="fas fa-download"></i> Download Cost Estimate (PDF)
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="additional-info">
+            <h3 class="info-title">Why Choose Star Builders?</h3>
+            <div class="info-content">
+                <div class="info-box">
+                    <h3><i class="fas fa-hard-hat"></i> Project Management</h3>
+                    <p>Our experienced project managers oversee every detail, ensuring your construction is completed on time and within budget with minimal disruption.</p>
+                </div>
+
+                <div class="info-box">
+                    <h3><i class="fas fa-shield-alt"></i> Warranty & Support</h3>
+                    <p>We provide a comprehensive 15-year structural warranty on all projects, plus ongoing maintenance support to ensure your complete satisfaction.</p>
+                </div>
+
+                <div class="info-box">
+                    <h3><i class="fas fa-clipboard-check"></i> Quality Assurance</h3>
+                    <p>Our rigorous quality control process includes regular inspections at critical construction milestones to ensure adherence to the highest standards.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+     <a
+    href="https://wa.me/917094427646?text=Hi%2C%20I%20have%20a%20question"
+    class="whatsapp-float"
+    target="_blank"
+    title="Chat on WhatsApp"
+  >
+    <img
+      src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"
+      alt="WhatsApp Logo"
+    />
+  </a>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <h2>STAR BUILDERS</h2>
+                        <p>Quality construction services you can trust.</p>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                          <li><a href="{{ url_for('home') }}">Home</a></li>
+                        <li><a href="{{ url_for('home') }}#services">Services</a></li>
+
+                        <li><a href="{{ url_for('home') }}#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact Info</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> STAR COMPLEX, NGT TO TVR MAIN ROAD, MANJAKOLLAI, NAGAPATTINAM.</p>
+                    <p><i class="fas fa-phone"></i> +91 70944 27646, +91 96294 47039</p>
+                    <p><i class="fas fa-envelope"></i> starbuilders1999@gmail.com</p>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Star Builders. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+         // Mobile menu toggle
+        document.querySelector('.hamburger').addEventListener('click', function() {
+            document.querySelector('.nav-links').classList.toggle('active');
+        });
+
+        // Close mobile menu when a link is clicked
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', function() {
+                const navLinks = document.querySelector('.nav-links');
+                if (navLinks.classList.contains('active')) {
+                    navLinks.classList.remove('active');
+                }
+            });
+        });
+
+        // Collapsible sections functionality
+        document.querySelectorAll('.section-header').forEach(header => {
+            header.addEventListener('click', function() {
+                const targetId = this.getAttribute('data-target');
+                const content = document.getElementById(targetId);
+                const icon = this.querySelector('.toggle-icon');
+
+                // Toggle content visibility
+                content.classList.toggle('active');
+
+                // Toggle icon rotation
+                icon.classList.toggle('rotated');
+            });
+        });
+
+        // Construction Cost Calculator
+        document.getElementById('calculateBtn').addEventListener('click', function() {
+            // Get input values
+            const area = parseFloat(document.getElementById('area').value) || 0;
+            const packageRate = parseFloat(document.getElementById('package').value) || 0;
+            const parkingArea = parseFloat(document.getElementById('parking').value) || 0;
+            const compoundLength = parseFloat(document.getElementById('compound').value) || 0;
+            const people = parseFloat(document.getElementById('people').value) || 0;
+            const tankCapacity = parseFloat(document.getElementById('tank').value) || 0;
+
+            // Calculate costs
+            const constructionCost = area * packageRate;
+            const parkingCost = parkingArea * 1800;
+            const compoundCost = compoundLength * 2000;
+            const waterCost = people * 30000;
+            const tankCost = tankCapacity * 25;
+            const totalCost = constructionCost + parkingCost + compoundCost + waterCost + tankCost;
+
+            // Format numbers with commas (fixed scientific notation issue)
+            function formatNumber(num) {
+                // Convert to string and split into parts
+                const numStr = num.toFixed(0);
+                return '₹' + numStr.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+            }
+
+            // Update results
+            document.getElementById('constructionCost').textContent = formatNumber(constructionCost);
+            document.getElementById('parkingCost').textContent = formatNumber(parkingCost);
+            document.getElementById('compoundCost').textContent = formatNumber(compoundCost);
+            document.getElementById('waterCost').textContent = formatNumber(waterCost);
+            document.getElementById('tankCost').textContent = formatNumber(tankCost);
+            document.getElementById('totalCost').textContent = formatNumber(totalCost);
+
+            // Show results
+            document.getElementById('resultsContainer').style.display = 'block';
+
+            // Smooth scroll to results
+            document.getElementById('resultsContainer').scrollIntoView({
+                behavior: 'smooth',
+                block: 'center'
+            });
+        });
+
+        // Enhanced PDF Download Functionality
+        document.getElementById('downloadBtn').addEventListener('click', function() {
+            // Get current date
+            const today = new Date();
+            const dateStr = today.toLocaleDateString('en-IN', {
+                day: '2-digit',
+                month: 'long',
+                year: 'numeric'
+            });
+
+            // Create a PDF
+            const { jsPDF } = window.jspdf;
+            const doc = new jsPDF();
+
+            // Set page dimensions
+            const pageWidth = doc.internal.pageSize.getWidth();
+            const centerX = pageWidth / 2;
+
+            // Add background watermark
+            doc.setFillColor(245, 245, 245);
+            doc.rect(0, 0, pageWidth, doc.internal.pageSize.getHeight(), 'F');
+
+            // Add decorative header
+            doc.setFillColor(243, 156, 18, 10); // Orange with transparency
+            doc.rect(0, 0, pageWidth, 60, 'F');
+
+            // Add Star Builders header
+            doc.setFontSize(24);
+            doc.setFont('helvetica', 'bold');
+            doc.setTextColor(44, 62, 80); // #2c3e50
+            doc.text("STAR BUILDERS", centerX, 25, null, null, 'center');
+
+            // Add decorative line
+            doc.setDrawColor(243, 156, 18); // Orange
+            doc.setLineWidth(0.8);
+            doc.line(centerX - 75, 30, centerX + 75, 30);
+
+            // Add title
+            doc.setFontSize(18);
+            doc.setTextColor(52, 73, 94); // Dark blue
+            doc.text("Construction Cost Estimate", centerX, 45, null, null, 'center');
+
+            // Add date
+            doc.setFontSize(12);
+            doc.setTextColor(100, 100, 100);
+            doc.text(`Generated on: ${dateStr}`, centerX, 55, null, null, 'center');
+
+            // Add cost breakdown section
+            doc.setFontSize(16);
+            doc.setTextColor(44, 62, 80);
+            doc.text("Cost Breakdown", 20, 75);
+
+            // Draw a line
+            doc.setDrawColor(243, 156, 18);
+            doc.setLineWidth(0.5);
+            doc.line(20, 77, pageWidth - 20, 77);
+
+            // Get cost values
+            const constructionCost = document.getElementById('constructionCost').textContent;
+            const parkingCost = document.getElementById('parkingCost').textContent;
+            const compoundCost = document.getElementById('compoundCost').textContent;
+            const waterCost = document.getElementById('waterCost').textContent;
+            const tankCost = document.getElementById('tankCost').textContent;
+            const totalCost = document.getElementById('totalCost').textContent;
+
+            // Add cost items with improved layout
+            doc.setFontSize(12);
+            doc.setTextColor(50, 50, 50);
+
+            let yPos = 90;
+
+            // Create table-like structure
+            function addCostItem(label, value, y) {
+                doc.setFont('helvetica', 'normal');
+                doc.setTextColor(50, 50, 50);
+                doc.text(label, 25, y);
+
+                doc.setFont('courier', 'bold');
+                doc.setTextColor(44, 62, 80);
+                doc.text(value, pageWidth - 25, y, null, null, 'right');
+
+                // Add dotted line
+                doc.setDrawColor(200, 200, 200);
+                doc.setLineWidth(0.1);
+                doc.line(20, y + 3, pageWidth - 20, y + 3);
+            }
+
+            addCostItem("Construction Cost:", constructionCost, yPos);
+            yPos += 10;
+            addCostItem("Parking Cost:", parkingCost, yPos);
+            yPos += 10;
+            addCostItem("Compound Wall Cost:", compoundCost, yPos);
+            yPos += 10;
+            addCostItem("Waste Water Tank Cost:", waterCost, yPos);
+            yPos += 10;
+            addCostItem("Underground Water Tank Cost:", tankCost, yPos);
+            yPos += 15;
+
+            // Add total cost section with background
+            doc.setFillColor(243, 156, 18, 15); // Light orange background
+            doc.rect(20, yPos, pageWidth - 40, 30, 'F');
+
+            doc.setFontSize(16);
+            doc.setFont('helvetica', 'bold');
+            doc.setTextColor(44, 62, 80);
+            doc.text("TOTAL ESTIMATED COST", centerX, yPos + 12, null, null, 'center');
+
+            doc.setFontSize(22);
+            doc.setTextColor(231, 76, 60); // Red for emphasis
+            doc.text(totalCost, centerX, yPos + 25, null, null, 'center');
+
+            yPos += 40;
+
+            // Add footer note
+            doc.setFontSize(10);
+            doc.setFont('helvetica', 'italic');
+            doc.setTextColor(100, 100, 100);
+            doc.text("This is an estimate. For a detailed quote, please contact us at:", centerX, yPos, null, null, 'center');
+            yPos += 5;
+            doc.setFont('helvetica', 'bold');
+            doc.setTextColor(52, 152, 219); // Blue for contact info
+            doc.text("starbuilders1999@gmail.com | +91 70944 27646", centerX, yPos, null, null, 'center');
+            yPos += 5;
+            doc.setFont('helvetica', 'normal');
+            doc.setTextColor(100, 100, 100);
+            doc.text("STAR COMPLEX, NGT TO TVR MAIN ROAD, MANJAKOLLAI, NAGAPATTINAM", centerX, yPos, null, null, 'center');
+
+            // Add company logo at bottom
+            yPos += 15;
+            doc.setFontSize(14);
+            doc.setFont('helvetica', 'bold');
+            doc.setTextColor(44, 62, 80);
+            doc.text("STAR BUILDERS", centerX, yPos, null, null, 'center');
+
+            // Save the PDF
+            doc.save(`StarBuilders_Estimate_${today.getFullYear()}_${today.getMonth()+1}_${today.getDate()}.pdf`);
+        });
+    </script>
+</body>
+</html>

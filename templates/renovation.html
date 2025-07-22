@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Star Builders - Renovation Services</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+     <link rel="stylesheet" href="static/css/style.css">
+
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    <h1>STAR BUILDERS</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="{{ url_for('home') }}">Home</a></li>
+                    <li><a href="{{ url_for('home') }}#services">Services</a></li>
+
+                    <li><a href="{{ url_for('home') }}#about">About</a></li>
+                    <li><a href="{{ url_for('home') }}#contact">Contact</a></li>
+                </ul>
+                <div class="hamburger">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Renovation Hero Section -->
+    <section class="service-hero">
+         <video autoplay muted loop playsinline class="bg-video">
+        <source src="{{ url_for('static', filename='images/renovation.mp4') }}" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+        <div class="overlay"></div>
+        <div class="container">
+            <h1>Renovation Services</h1>
+            <p>Transforming your existing space into something extraordinary</p>
+        </div>
+    </section>
+
+    <!-- Renovation Details -->
+    <section class="service-details">
+        <div class="container">
+            <div class="service-content">
+                <h2 class="section-title">Our Renovation Expertise</h2>
+                <p>Star Builders has transformed hundreds of homes and commercial spaces. Our team handles everything from minor updates to complete overhauls.</p>
+
+                <div class="service-features">
+                    <div class="feature">
+                       <img src="{{ url_for('static', filename='images/renovation1.jpg') }}" alt="Kitchen Renovation">
+                        <h3>Kitchen Remodeling</h3>
+                        <p>Modernize your kitchen with custom cabinetry, countertops, and lighting solutions.</p>
+                    </div>
+                    <div class="feature">
+                         <img src="{{ url_for('static', filename='images/renovation2.jpg') }}" alt="Bathroom Renovation">
+                        <h3>Bathroom Upgrades</h3>
+                        <p>Create spa-like retreats with our premium bathroom renovation services.</p>
+                    </div>
+                    <div class="feature">
+                       <img src="{{ url_for('static', filename='images/renovation3.jpg') }}" alt="Whole House Renovation">
+                        <h3>Whole House Renovations</h3>
+                        <p>Complete home transformations while preserving architectural integrity.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="service-process">
+        <div class="container">
+            <h2 class="section-title">Our Renovation Process</h2>
+            <ol>
+                <li><strong>Consultation:</strong> We discuss your vision and requirements</li>
+                <li><strong>Planning:</strong> Our designers create detailed plans</li>
+                <li><strong>Approval:</strong> We finalize designs and materials</li>
+                <li><strong>Execution:</strong> Skilled craftsmen bring the plans to life</li>
+                <li><strong>Completion:</strong> Final walkthrough and project delivery</li>
+            </ol>
+        </div>
+    </section>
+
+     <a
+    href="https://wa.me/917094427646?text=Hi%2C%20I%20have%20a%20question"
+    class="whatsapp-float"
+    target="_blank"
+    title="Chat on WhatsApp"
+  >
+    <img
+      src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"
+      alt="WhatsApp Logo"
+    />
+  </a>
+
+    <!-- Footer with Logo and Contact Info -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <h2>STAR BUILDERS</h2>
+                        <p>Quality construction services you can trust.</p>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                         <li><a href="{{ url_for('home') }}">Home</a></li>
+                        <li><a href="{{ url_for('home') }}#services">Services</a></li>
+
+                        <li><a href="{{ url_for('home') }}#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact Info</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> STAR COMPLEX, NGT TO TVR MAIN ROAD, MANJAKOLLAI, NAGAPATTINAM.</p>
+                    <p><i class="fas fa-phone"></i> +91 70944 27646, +91 96294 47039</p>
+                    <p><i class="fas fa-envelope"></i> starbuilders1999@gmail.com</p>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Star Builders. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Navigation Toggle
+        document.addEventListener('DOMContentLoaded', function() {
+            const hamburger = document.querySelector('.hamburger');
+            const navLinks = document.querySelector('.nav-links');
+            const hamburgerIcon = hamburger.querySelector('i');
+
+            hamburger.addEventListener('click', function() {
+                navLinks.classList.toggle('active');
+
+                // Toggle between hamburger and close icon
+                if (navLinks.classList.contains('active')) {
+                    hamburgerIcon.classList.remove('fa-bars');
+                    hamburgerIcon.classList.add('fa-times');
+                } else {
+                    hamburgerIcon.classList.remove('fa-times');
+                    hamburgerIcon.classList.add('fa-bars');
+                }
+            });
+
+            // Close menu when clicking on links
+            document.querySelectorAll('.nav-links a').forEach(link => {
+                link.addEventListener('click', () => {
+                    navLinks.classList.remove('active');
+                    hamburgerIcon.classList.remove('fa-times');
+                    hamburgerIcon.classList.add('fa-bars');
+                });
+            });
+        });
+    </script>
+</body>
+</html>

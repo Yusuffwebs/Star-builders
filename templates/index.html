@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Star Builders - Quality Construction Services</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+     <link rel="stylesheet" href="static/css/style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    <h1>STAR BUILDERS</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <div class="hamburger">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <video autoplay muted loop playsinline class="bg-video">
+             <source src="{{ url_for('static', filename='images/renovation.mp4') }}" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="hero-content">
+                <h1>Building Your Vision, Crafting Reality</h1>
+                <p>Quality construction services for residential and commercial projects</p>
+                <a href="#contact" class="btn">Get a Free Quote</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <h2 class="section-title">Our Services</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <i class="fas fa-home"></i>
+                    <h3>Residential Construction</h3>
+                    <p>Custom home building and remodeling services tailored to your needs.</p>
+                   <a href="{{ url_for('residential') }}" class="btn btn-small">Learn More</a>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-building"></i>
+                    <h3>Commercial Construction</h3>
+                    <p>Professional commercial building solutions for businesses of all sizes.</p>
+                   <a href="{{ url_for('commercial') }}" class="btn btn-small">Learn More</a>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-tools"></i>
+                    <h3>Renovations</h3>
+                    <p>Transform your existing space with our expert renovation services.</p>
+                    <a href="{{ url_for('renovation') }}" class="btn btn-small">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="about-content">
+                <h2 class="section-title">About Star Builders</h2>
+                <p>Star Builders has established itself as a trusted name for quality construction services. Our team of skilled professionals is committed to delivering exceptional results on every project.</p>
+                <p>We pride ourselves on our attention to detail, commitment to deadlines, and transparent communication with our clients.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+
+
+
+    <a
+    href="https://wa.me/917094427646?text=Hi%2C%20I%20have%20a%20question"
+    class="whatsapp-float"
+    target="_blank"
+    title="Chat on WhatsApp"
+  >
+    <img
+      src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"
+      alt="WhatsApp Logo"
+    />
+  </a>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>STAR BUILDERS</h3>
+                    <p>Quality construction services you can trust.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact Info</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> STAR COMPLEX, NGT TO TVR MAIN ROAD, MANJAKOLLAI, NAGAPATTINAM.</p>
+                    <p><i class="fas fa-phone"></i> +91 70944 27646, +91 96294 47039</p>
+                    <p><i class="fas fa-envelope"></i> starbuilders1999@gmail.com</p>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Star Builders. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Navigation Toggle
+        document.addEventListener('DOMContentLoaded', function() {
+            const hamburger = document.querySelector('.hamburger');
+            const navLinks = document.querySelector('.nav-links');
+            const hamburgerIcon = hamburger.querySelector('i');
+
+            hamburger.addEventListener('click', function() {
+                navLinks.classList.toggle('active');
+
+                // Toggle between hamburger and close icon
+                if (navLinks.classList.contains('active')) {
+                    hamburgerIcon.classList.remove('fa-bars');
+                    hamburgerIcon.classList.add('fa-times');
+                } else {
+                    hamburgerIcon.classList.remove('fa-times');
+                    hamburgerIcon.classList.add('fa-bars');
+                }
+            });
+
+            // Close menu when clicking on links
+            document.querySelectorAll('.nav-links a').forEach(link => {
+                link.addEventListener('click', () => {
+                    navLinks.classList.remove('active');
+                    hamburgerIcon.classList.remove('fa-times');
+                    hamburgerIcon.classList.add('fa-bars');
+                });
+            });
+        });
+    </script>
+</body>
+</html>
