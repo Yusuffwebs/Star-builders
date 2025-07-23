@@ -629,7 +629,7 @@
             color: #2c3e50;
         }
 
-       .total-cost {
+        .total-cost {
     background: linear-gradient(135deg, #1c1c1c, #4b0000, #8b1e3f);
     color: #ffffff;
     padding: 36px 32px;
@@ -671,19 +671,26 @@
 }
 
 .total-cost .value {
-    font-size: 3.4rem;
+    font-size: clamp(2.2rem, 8vw, 3.4rem);
     font-weight: 900;
     line-height: 1.2;
     letter-spacing: 1.3px;
     position: relative;
     z-index: 1;
     color: #ffdddd;
+    word-break: break-word;
+    white-space: normal;
+    overflow-wrap: break-word;
+    display: inline-block;
+    max-width: 100%;
+    text-align: center;
 }
 
 /* Responsive Fix for Mobile (without changing design) */
 @media (max-width: 480px) {
     .total-cost {
         padding: 28px 20px;
+        max-width: 95vw;
     }
 
     .total-cost h3 {
@@ -691,9 +698,10 @@
     }
 
     .total-cost .value {
-        font-size: 2.4rem;
+        font-size: clamp(2rem, 7vw, 2.4rem);
     }
 }
+
 
 
         /* Download Button */
