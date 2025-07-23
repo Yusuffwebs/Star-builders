@@ -761,216 +761,178 @@
     </footer>
 
     <script>
-         // Mobile menu toggle
-        document.querySelector('.hamburger').addEventListener('click', function() {
-            document.querySelector('.nav-links').classList.toggle('active');
-        });
+          // Mobile menu toggle
+document.querySelector('.hamburger').addEventListener('click', function () {
+    document.querySelector('.nav-links').classList.toggle('active');
+});
 
-        // Close mobile menu when a link is clicked
-        document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', function() {
-                const navLinks = document.querySelector('.nav-links');
-                if (navLinks.classList.contains('active')) {
-                    navLinks.classList.remove('active');
-                }
-            });
-        });
+// Close mobile menu when a link is clicked
+document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', function () {
+        const navLinks = document.querySelector('.nav-links');
+        if (navLinks.classList.contains('active')) {
+            navLinks.classList.remove('active');
+        }
+    });
+});
 
-        // Collapsible sections functionality
-        document.querySelectorAll('.section-header').forEach(header => {
-            header.addEventListener('click', function() {
-                const targetId = this.getAttribute('data-target');
-                const content = document.getElementById(targetId);
-                const icon = this.querySelector('.toggle-icon');
+// Collapsible sections functionality
+document.querySelectorAll('.section-header').forEach(header => {
+    header.addEventListener('click', function () {
+        const targetId = this.getAttribute('data-target');
+        const content = document.getElementById(targetId);
+        const icon = this.querySelector('.toggle-icon');
 
-                // Toggle content visibility
-                content.classList.toggle('active');
+        content.classList.toggle('active');
+        icon.classList.toggle('rotated');
+    });
+});
 
-                // Toggle icon rotation
-                icon.classList.toggle('rotated');
-            });
-        });
+// Construction Cost Calculator
+document.getElementById('calculateBtn').addEventListener('click', function () {
+    const area = parseFloat(document.getElementById('area').value) || 0;
+    const packageRate = parseFloat(document.getElementById('package').value) || 0;
+    const parkingArea = parseFloat(document.getElementById('parking').value) || 0;
+    const compoundLength = parseFloat(document.getElementById('compound').value) || 0;
+    const people = parseFloat(document.getElementById('people').value) || 0;
+    const tankCapacity = parseFloat(document.getElementById('tank').value) || 0;
 
-        // Construction Cost Calculator
-        document.getElementById('calculateBtn').addEventListener('click', function() {
-            // Get input values
-            const area = parseFloat(document.getElementById('area').value) || 0;
-            const packageRate = parseFloat(document.getElementById('package').value) || 0;
-            const parkingArea = parseFloat(document.getElementById('parking').value) || 0;
-            const compoundLength = parseFloat(document.getElementById('compound').value) || 0;
-            const people = parseFloat(document.getElementById('people').value) || 0;
-            const tankCapacity = parseFloat(document.getElementById('tank').value) || 0;
+    const constructionCost = area * packageRate;
+    const parkingCost = parkingArea * 1800;
+    const compoundCost = compoundLength * 2000;
+    const waterCost = people * 30000;
+    const tankCost = tankCapacity * 25;
+    const totalCost = constructionCost + parkingCost + compoundCost + waterCost + tankCost;
 
-            // Calculate costs
-            const constructionCost = area * packageRate;
-            const parkingCost = parkingArea * 1800;
-            const compoundCost = compoundLength * 2000;
-            const waterCost = people * 30000;
-            const tankCost = tankCapacity * 25;
-            const totalCost = constructionCost + parkingCost + compoundCost + waterCost + tankCost;
+    function formatNumber(num) {
+        const numStr = num.toFixed(0);
+        return '₹' + numStr.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    }
 
-            // Format numbers with commas (fixed scientific notation issue)
-            function formatNumber(num) {
-                // Convert to string and split into parts
-                const numStr = num.toFixed(0);
-                return '₹' + numStr.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-            }
+    document.getElementById('constructionCost').textContent = formatNumber(constructionCost);
+    document.getElementById('parkingCost').textContent = formatNumber(parkingCost);
+    document.getElementById('compoundCost').textContent = formatNumber(compoundCost);
+    document.getElementById('waterCost').textContent = formatNumber(waterCost);
+    document.getElementById('tankCost').textContent = formatNumber(tankCost);
+    document.getElementById('totalCost').textContent = formatNumber(totalCost);
 
-            // Update results
-            document.getElementById('constructionCost').textContent = formatNumber(constructionCost);
-            document.getElementById('parkingCost').textContent = formatNumber(parkingCost);
-            document.getElementById('compoundCost').textContent = formatNumber(compoundCost);
-            document.getElementById('waterCost').textContent = formatNumber(waterCost);
-            document.getElementById('tankCost').textContent = formatNumber(tankCost);
-            document.getElementById('totalCost').textContent = formatNumber(totalCost);
+    document.getElementById('resultsContainer').style.display = 'block';
+    document.getElementById('resultsContainer').scrollIntoView({
+        behavior: 'smooth',
+        block: 'center'
+    });
+});
 
-            // Show results
-            document.getElementById('resultsContainer').style.display = 'block';
+// PDF Generator with Clean ₹ Fix
+document.getElementById('downloadBtn').addEventListener('click', function () {
+    const today = new Date();
+    const dateStr = today.toLocaleDateString('en-IN', {
+        day: '2-digit',
+        month: 'long',
+        year: 'numeric'
+    });
 
-            // Smooth scroll to results
-            document.getElementById('resultsContainer').scrollIntoView({
-                behavior: 'smooth',
-                block: 'center'
-            });
-        });
+    const { jsPDF } = window.jspdf;
+    const doc = new jsPDF();
+    const pageWidth = doc.internal.pageSize.getWidth();
+    const centerX = pageWidth / 2;
+    const rightMargin = pageWidth - 20;
 
-        // Enhanced PDF Download Functionality
-        document.getElementById('downloadBtn').addEventListener('click', function() {
-            // Get current date
-            const today = new Date();
-            const dateStr = today.toLocaleDateString('en-IN', {
-                day: '2-digit',
-                month: 'long',
-                year: 'numeric'
-            });
+    // Header
+    doc.setFontSize(18);
+    doc.setFont('helvetica', 'bold');
+    doc.setTextColor(44, 62, 80);
+    doc.text("STAR BUILDERS", centerX, 20, { align: 'center' });
 
-            // Create a PDF
-            const { jsPDF } = window.jspdf;
-            const doc = new jsPDF();
+    doc.setFontSize(12);
+    doc.setTextColor(80, 80, 80);
+    doc.text("Construction Cost Estimate", centerX, 28, { align: 'center' });
 
-            // Set page dimensions
-            const pageWidth = doc.internal.pageSize.getWidth();
-            const centerX = pageWidth / 2;
+    doc.setFontSize(10);
+    doc.setTextColor(120, 120, 120);
+    doc.text(`Generated on: ${dateStr}`, centerX, 35, { align: 'center' });
 
-            // Add background watermark
-            doc.setFillColor(245, 245, 245);
-            doc.rect(0, 0, pageWidth, doc.internal.pageSize.getHeight(), 'F');
+    // FIX: clean rupee values properly
+    function getCleanAmount(elementId) {
+        const rawText = document.getElementById(elementId).textContent || '';
+        const numericOnly = rawText.replace(/[^\d,]/g, ''); // Keep only digits and commas
+        return '₹' + numericOnly;
+    }
 
-            // Add decorative header
-            doc.setFillColor(243, 156, 18, 10); // Orange with transparency
-            doc.rect(0, 0, pageWidth, 60, 'F');
+    const costItems = [
+        { label: "Construction Cost", value: getCleanAmount('constructionCost') },
+        { label: "Parking Cost", value: getCleanAmount('parkingCost') },
+        { label: "Compound Wall Cost", value: getCleanAmount('compoundCost') },
+        { label: "Waste Water Tank Cost", value: getCleanAmount('waterCost') },
+        { label: "Underground Water Tank Cost", value: getCleanAmount('tankCost') },
+    ];
+    const totalCost = getCleanAmount('totalCost');
 
-            // Add Star Builders header
-            doc.setFontSize(24);
-            doc.setFont('helvetica', 'bold');
-            doc.setTextColor(44, 62, 80); // #2c3e50
-            doc.text("STAR BUILDERS", centerX, 25, null, null, 'center');
+    let yPos = 45;
 
-            // Add decorative line
-            doc.setDrawColor(243, 156, 18); // Orange
-            doc.setLineWidth(0.8);
-            doc.line(centerX - 75, 30, centerX + 75, 30);
+    doc.setFontSize(11);
+    doc.setTextColor(20, 20, 20);
+    doc.setFont('helvetica', 'bold');
+    doc.text("ITEM", 20, yPos);
+    doc.text("AMOUNT", rightMargin, yPos, { align: 'right' });
 
-            // Add title
-            doc.setFontSize(18);
-            doc.setTextColor(52, 73, 94); // Dark blue
-            doc.text("Construction Cost Estimate", centerX, 45, null, null, 'center');
+    yPos += 8;
+    doc.setDrawColor(200, 200, 200);
+    doc.setLineWidth(0.3);
+    doc.line(20, yPos, rightMargin, yPos);
+    yPos += 10;
 
-            // Add date
-            doc.setFontSize(12);
-            doc.setTextColor(100, 100, 100);
-            doc.text(`Generated on: ${dateStr}`, centerX, 55, null, null, 'center');
+    doc.setFont('helvetica', 'normal');
+    doc.setTextColor(55, 55, 55);
+    costItems.forEach(item => {
+        doc.text(item.label, 20, yPos);
+        doc.setFont('helvetica', 'bold');
+        doc.setTextColor(34, 49, 63);
+        const textWidth = doc.getStringUnitWidth(item.value) * doc.internal.getFontSize() / doc.internal.scaleFactor;
+        doc.text(item.value, rightMargin - textWidth, yPos);
+        doc.setFont('helvetica', 'normal');
+        doc.setTextColor(55, 55, 55);
+        yPos += 8;
+    });
 
-            // Add cost breakdown section
-            doc.setFontSize(16);
-            doc.setTextColor(44, 62, 80);
-            doc.text("Cost Breakdown", 20, 75);
+    yPos += 5;
+    doc.setDrawColor(150, 150, 150);
+    doc.setLineWidth(0.5);
+    doc.line(20, yPos, rightMargin, yPos);
+    yPos += 10;
 
-            // Draw a line
-            doc.setDrawColor(243, 156, 18);
-            doc.setLineWidth(0.5);
-            doc.line(20, 77, pageWidth - 20, 77);
+    doc.setFont('helvetica', 'bold');
+    doc.setFontSize(12);
+    doc.setTextColor(0, 0, 0);
+    doc.text("TOTAL ESTIMATED COST", 20, yPos);
 
-            // Get cost values
-            const constructionCost = document.getElementById('constructionCost').textContent;
-            const parkingCost = document.getElementById('parkingCost').textContent;
-            const compoundCost = document.getElementById('compoundCost').textContent;
-            const waterCost = document.getElementById('waterCost').textContent;
-            const tankCost = document.getElementById('tankCost').textContent;
-            const totalCost = document.getElementById('totalCost').textContent;
+    doc.setFontSize(14);
+    doc.setTextColor(0, 102, 51);
+    const totalWidth = doc.getStringUnitWidth(totalCost) * doc.internal.getFontSize() / doc.internal.scaleFactor;
+    doc.text(totalCost, rightMargin - totalWidth, yPos);
 
-            // Add cost items with improved layout
-            doc.setFontSize(12);
-            doc.setTextColor(50, 50, 50);
+    yPos += 20;
+    doc.setFont('helvetica', 'normal');
+    doc.setFontSize(9);
+    doc.setTextColor(100, 100, 100);
+    doc.text("Note: This is a preliminary estimate. Final costs may vary based on actual", 20, yPos);
+    yPos += 5;
+    doc.text("site conditions and material prices. All amounts are in Indian Rupees (₹).", 20, yPos);
 
-            let yPos = 90;
+    yPos += 10;
+    doc.setFontSize(10);
+    doc.setFont('helvetica', 'bold');
+    doc.setTextColor(44, 62, 80);
+    doc.text("Contact: starbuilders1999@gmail.com | +91 70944 27646", centerX, yPos, { align: 'center' });
 
-            // Create table-like structure
-            function addCostItem(label, value, y) {
-                doc.setFont('helvetica', 'normal');
-                doc.setTextColor(50, 50, 50);
-                doc.text(label, 25, y);
+    yPos += 5;
+    doc.setFontSize(9);
+    doc.setFont('helvetica', 'normal');
+    doc.setTextColor(60, 60, 60);
+    doc.text("STAR COMPLEX, NGT TO TVR MAIN ROAD, MANJAKOLLAI, NAGAPATTINAM", centerX, yPos, { align: 'center' });
 
-                doc.setFont('courier', 'bold');
-                doc.setTextColor(44, 62, 80);
-                doc.text(value, pageWidth - 25, y, null, null, 'right');
-
-                // Add dotted line
-                doc.setDrawColor(200, 200, 200);
-                doc.setLineWidth(0.1);
-                doc.line(20, y + 3, pageWidth - 20, y + 3);
-            }
-
-            addCostItem("Construction Cost:", constructionCost, yPos);
-            yPos += 10;
-            addCostItem("Parking Cost:", parkingCost, yPos);
-            yPos += 10;
-            addCostItem("Compound Wall Cost:", compoundCost, yPos);
-            yPos += 10;
-            addCostItem("Waste Water Tank Cost:", waterCost, yPos);
-            yPos += 10;
-            addCostItem("Underground Water Tank Cost:", tankCost, yPos);
-            yPos += 15;
-
-            // Add total cost section with background
-            doc.setFillColor(243, 156, 18, 15); // Light orange background
-            doc.rect(20, yPos, pageWidth - 40, 30, 'F');
-
-            doc.setFontSize(16);
-            doc.setFont('helvetica', 'bold');
-            doc.setTextColor(44, 62, 80);
-            doc.text("TOTAL ESTIMATED COST", centerX, yPos + 12, null, null, 'center');
-
-            doc.setFontSize(22);
-            doc.setTextColor(231, 76, 60); // Red for emphasis
-            doc.text(totalCost, centerX, yPos + 25, null, null, 'center');
-
-            yPos += 40;
-
-            // Add footer note
-            doc.setFontSize(10);
-            doc.setFont('helvetica', 'italic');
-            doc.setTextColor(100, 100, 100);
-            doc.text("This is an estimate. For a detailed quote, please contact us at:", centerX, yPos, null, null, 'center');
-            yPos += 5;
-            doc.setFont('helvetica', 'bold');
-            doc.setTextColor(52, 152, 219); // Blue for contact info
-            doc.text("starbuilders1999@gmail.com | +91 70944 27646", centerX, yPos, null, null, 'center');
-            yPos += 5;
-            doc.setFont('helvetica', 'normal');
-            doc.setTextColor(100, 100, 100);
-            doc.text("STAR COMPLEX, NGT TO TVR MAIN ROAD, MANJAKOLLAI, NAGAPATTINAM", centerX, yPos, null, null, 'center');
-
-            // Add company logo at bottom
-            yPos += 15;
-            doc.setFontSize(14);
-            doc.setFont('helvetica', 'bold');
-            doc.setTextColor(44, 62, 80);
-            doc.text("STAR BUILDERS", centerX, yPos, null, null, 'center');
-
-            // Save the PDF
-            doc.save(`StarBuilders_Estimate_${today.getFullYear()}_${today.getMonth()+1}_${today.getDate()}.pdf`);
-        });
+    doc.save(`StarBuilders_Estimate_${today.getFullYear()}${(today.getMonth() + 1).toString().padStart(2, '0')}${today.getDate().toString().padStart(2, '0')}.pdf`);
+});
     </script>
 </body>
 </html>
